@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+//The get mappings here are not needed as part of the outlined functions
+//They could be repurposed for future needs
 @RestController
 @RequestMapping("/person")
 public class PersonController {

@@ -1,6 +1,6 @@
 package com.example.alertsnotification.service;
 
-import com.example.alertsnotification.dto.PersonInfoDTO;
+import com.example.alertsnotification.dto.PersonPhoneDTO;
 import com.example.alertsnotification.model.FireStation;
 import com.example.alertsnotification.model.Household;
 import com.example.alertsnotification.model.Person;
@@ -45,9 +45,9 @@ public class FireStationService {
         return result;
     }
 
-    public List<PersonInfoDTO> getPhoneNumbersByStation(int stationNumber) {
+    public List<PersonPhoneDTO> getPhoneNumbersByStation(int stationNumber) {
         return personRepository.findByFireStationNumber(stationNumber).stream()
-                .map(person -> new PersonInfoDTO(
+                .map(person -> new PersonPhoneDTO(
                         person.getFirstName(),
                         person.getLastName(),
                         person.getAddress(),
