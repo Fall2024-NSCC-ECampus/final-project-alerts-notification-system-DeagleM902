@@ -1,5 +1,6 @@
 package com.example.alertsnotification.controller;
 
+import com.example.alertsnotification.dto.PersonInfoDTO;
 import com.example.alertsnotification.service.FireStationService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ public class PhoneAlertController {
     }
 
     @GetMapping
-    public List<String> getPhoneNumberByStation(@RequestParam("firestation") int stationNumber) {
+    public List<PersonInfoDTO> getPhoneNumberByStation(@RequestParam("firestation") int stationNumber) {
         return fireStationService.getPhoneNumbersByStation(stationNumber);
     }
 }

@@ -1,10 +1,12 @@
 package com.example.alertsnotification.service;
 
+import com.example.alertsnotification.dto.CommunityEmailDTO;
 import com.example.alertsnotification.model.Person;
 import com.example.alertsnotification.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonService {
@@ -24,5 +26,9 @@ public class PersonService {
 
     public List<Person> getPersonsByName(String firstName, String lastName) {
         return personRepository.findByFirstNameAndLastName(firstName, lastName);
+    }
+
+    public List<CommunityEmailDTO> getEmailByCity(String city) {
+        return personRepository.findEmailByCity(city);
     }
 }

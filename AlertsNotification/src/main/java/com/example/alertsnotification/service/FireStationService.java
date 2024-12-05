@@ -1,9 +1,11 @@
 package com.example.alertsnotification.service;
 
+import com.example.alertsnotification.dto.PersonInfoDTO;
 import com.example.alertsnotification.model.FireStation;
 import com.example.alertsnotification.model.Household;
 import com.example.alertsnotification.model.Person;
 import com.example.alertsnotification.repository.FireStationRepository;
+import com.example.alertsnotification.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -15,9 +17,11 @@ import java.util.stream.Collectors;
 @Service
 public class FireStationService {
     private final FireStationRepository fireStationRepository;
+    private final PersonRepository personRepository;
 
-    public FireStationService(FireStationRepository fireStationRepository) {
+    public FireStationService(FireStationRepository fireStationRepository, PersonRepository personRepository) {
         this.fireStationRepository = fireStationRepository;
+        this.personRepository = personRepository;
     }
 
     //Get people that are serviced by the given fire station
@@ -41,15 +45,14 @@ public class FireStationService {
         return result;
     }
 
-    public List<String> getPhoneNumbersByStation(int stationNumber) {
-        FireStation fireStation = fireStationRepository.findByStationNumber(stationNumber);
-        if (fireStation == null) {
-            return Collections.emptyList();
-        }
-        return fireStation.getHouseholds().stream()
-                .flatMap(household -> household.getResidents().stream())
-                .map(Person::getPhoneNumber)
-                .distinct()
+    public List<PersonInfoDTO> getPhoneNumbersByStation(int stationNumber) {
+        return personRepository.findByFireStationNumber(stationNumber).stream()
+                .map(person -> new PersonInfoDTO(
+                        person.getFirstName(),
+                        person.getLastName(),
+                        person.getAddress(),
+                        person.getPhoneNumber()
+                ))
                 .collect(Collectors.toList());
     }
 }
