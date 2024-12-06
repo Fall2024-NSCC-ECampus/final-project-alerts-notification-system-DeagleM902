@@ -2,6 +2,7 @@ package com.example.alertsnotification.service;
 
 import com.example.alertsnotification.dto.CommunityEmailDTO;
 import com.example.alertsnotification.dto.PersonInfoDTO;
+import com.example.alertsnotification.exception.EntityNotFoundException;
 import com.example.alertsnotification.model.Person;
 import com.example.alertsnotification.repository.PersonRepository;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,11 @@ public class PersonService {
     }
 
     public List<Person> getPersonsByAddress(String address) {
-        return personRepository.findByAddress(address);
+        List<Person> residents = personRepository.findByAddress(address);
+        if (residents.isEmpty()) {
+            throw new EntityNotFoundException("No residents found at address " + address);
+        }
+        return residents;
     }
 
     public List<Person> getPersonsByName(String firstName, String lastName) {

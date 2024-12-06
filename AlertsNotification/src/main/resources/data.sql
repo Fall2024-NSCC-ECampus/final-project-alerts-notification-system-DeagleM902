@@ -1,11 +1,11 @@
 -- Sample data for FireStation
 INSERT INTO fire_station (station_number, station_address) VALUES (1, '101 Firehouse Way');
-INSERT INTO fire_station (station_number, station_address) VALUES (2, '202 Rescue Lane');
+INSERT INTO fire_station (station_number, station_address) VALUES (2, '202 Station Road');
 
 -- Sample data for Household
 INSERT INTO household (address,fire_station_id) VALUES ('123 Elm Street', 1);
 INSERT INTO household (address,fire_station_id) VALUES ('456 Oak Street', 1);
-INSERT INTO household (address,fire_station_id) VALUES ('789 Pine Street', 2);
+INSERT INTO household (address,fire_station_id) VALUES ('789 Juniper Street', 2);
 
 -- Sample data for Person
 INSERT INTO residents (first_name, last_name, address, city, phone_number, email, age, household_id)
@@ -16,6 +16,9 @@ VALUES ('Jane', 'Smith', '456 Oak Street', 'Halifax', '902-5678', 'jane.smith@ex
 
 INSERT INTO residents (first_name, last_name, address, city, phone_number, email, age, household_id)
 VALUES ('Child', 'Smith', '456 Oak Street', 'Halifax', '902-5678', 'child.smith@example.com', 9, 2);
+
+INSERT INTO residents (first_name, last_name, address, city, phone_number, email, age, household_id)
+VALUES ('Joe', 'Brown', '789 Juniper Street', 'Halifax', '902-2468', 'joe.brown@example.com', 46, 3);
 
 -- Sample data for Medications
 INSERT INTO person_medications (person_id, medication) VALUES (1, 'aspirin:100mg');
