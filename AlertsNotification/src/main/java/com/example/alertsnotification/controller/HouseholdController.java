@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/household")
 public class HouseholdController {
-    private HouseholdService householdService;
+    private final HouseholdService householdService;
 
     public HouseholdController(HouseholdService householdService) {
         this.householdService = householdService;

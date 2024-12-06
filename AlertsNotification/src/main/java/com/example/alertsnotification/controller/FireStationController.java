@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+/**
+ * Endpoint for fire station functions
+ */
 @RestController
 @RequestMapping("/firestation")
 public class FireStationController {
@@ -17,6 +20,11 @@ public class FireStationController {
         this.fireStationService = fireStationService;
     }
 
+    /**
+     * Retrieves the information of all residents serviced by the given firestation.
+     * @param stationNumber The firstation number.
+     * @return The information of all residents serviced by the given firestation.
+     */
     @GetMapping
     public Map<String, Object> getPeopleByStation(@RequestParam("stationNumber") int stationNumber) {
         return fireStationService.getPeopleByStation(stationNumber);

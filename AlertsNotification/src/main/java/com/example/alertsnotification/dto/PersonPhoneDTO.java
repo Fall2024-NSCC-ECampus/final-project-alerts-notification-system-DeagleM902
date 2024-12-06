@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * DTO object to be utilized for the Residents Phone number functionality
+ */
 @Getter
 @Setter
 @AllArgsConstructor

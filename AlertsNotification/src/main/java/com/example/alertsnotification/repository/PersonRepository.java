@@ -8,6 +8,9 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+/**
+ * Repository for the Person model
+ */
 public interface PersonRepository extends JpaRepository<Person, Long> {
     List<Person> findByAddress(String address);
     List<Person> findByFirstNameAndLastName(String firstName, String lastName);

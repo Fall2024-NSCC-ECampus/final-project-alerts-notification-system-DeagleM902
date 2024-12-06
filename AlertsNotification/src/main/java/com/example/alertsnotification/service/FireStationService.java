@@ -14,17 +14,29 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Service level class for fire station data.
+ */
 @Service
 public class FireStationService {
     private final FireStationRepository fireStationRepository;
     private final PersonRepository personRepository;
 
+    /**
+     * Constructs a FireStationService with the specified fireStationRepository and personRepository.
+     * @param fireStationRepository The firestation repository.
+     * @param personRepository The Person repository.
+     */
     public FireStationService(FireStationRepository fireStationRepository, PersonRepository personRepository) {
         this.fireStationRepository = fireStationRepository;
         this.personRepository = personRepository;
     }
 
-    //Get people that are serviced by the given fire station
+    /**
+     * Retrieves all information from the residents serviced by the given firestation
+     * @param stationNumber The fire station to retrieve the information from.
+     * @return The residents serviced by the given firestation.
+     */
     public Map<String, Object> getPeopleByStation(int stationNumber) {
         FireStation fireStation = fireStationRepository.findByStationNumber(stationNumber);
         if (fireStation == null) {
@@ -45,6 +57,11 @@ public class FireStationService {
         return result;
     }
 
+    /**
+     * Retrieves the name and phone number of the residents serviced by the given firestation.
+     * @param stationNumber The specified firestation.
+     * @return The name and phone number of residents serviced by the given firestation.
+     */
     public List<PersonPhoneDTO> getPhoneNumbersByStation(int stationNumber) {
         return personRepository.findByFireStationNumber(stationNumber).stream()
                 .map(person -> new PersonPhoneDTO(

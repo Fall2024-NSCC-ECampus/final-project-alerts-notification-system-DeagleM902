@@ -8,6 +8,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Class representing an individual resident.
+ * Includes fields for personal information such as name, address, city, phone#, email and age.
+ * Medication and allergy information can also be added.
+ * Residents can be grouped into a household.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,7 +33,7 @@ public class Person {
     private String address;
     private String city;
 
-    @Column(name = "phone_number") // Explicitly map to database column
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     private String email;

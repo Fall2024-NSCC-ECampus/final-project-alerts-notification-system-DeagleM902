@@ -7,6 +7,9 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * DTO object to be utilized for the Person Info functionality
+ */
 @Getter
 @Setter
 @AllArgsConstructor

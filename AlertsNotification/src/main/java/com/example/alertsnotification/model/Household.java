@@ -8,6 +8,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Class representing a household.
+ * Contains an address field.
+ * Allows residents to be grouped together as a household, and can be associated with a firestation.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

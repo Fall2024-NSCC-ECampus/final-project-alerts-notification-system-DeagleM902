@@ -7,6 +7,11 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+/**
+ * Class representing a firestation.
+ * Contains fields for station number and address.
+ * Households can be assigned to a firestation.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

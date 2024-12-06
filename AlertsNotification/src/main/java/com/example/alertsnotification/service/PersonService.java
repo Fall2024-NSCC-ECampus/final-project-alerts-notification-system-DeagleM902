@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
+/**
+ * Service level class for Person data.
+ */
 @Service
 public class PersonService {
     private final PersonRepository personRepository;
